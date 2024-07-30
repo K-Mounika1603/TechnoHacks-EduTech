@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class QuizGame {
+    public static void main(String[] args) {
+        // Array of quiz questions and options
+        String[][] Queries = {
+            {"1. Which of these elements in HTML can be used for making a text bold?", "a. <a>", "b. <pre>", "c. <br>", "d. <b>"},
+            {"2. Which tag do we use in HTML for inserting a line-break?", "a. <a>", "b. <br>", "c. <b>", "d. <pre>"},
+            {"3. How to create a hyperlink in HTML?", "a. <a link = “www.thinkandlearn.com”> thinkandlearn.com </a>", "b. <a> www.thinkandlearn.com <thinkandlearn.com /a>", "c. <a href = “www.thinkandlearn.com”> thinkandlearn.com </a>", "d. <a url = “www.thinkandlearn.com” thinkandlearn.com /a>"},
+            {"4. In HTML, how do we insert an image?", "a. <img src = “jtp.png” />", "b. <img href = “jtp.png” />", "c. <img link = “jtp.png” />", "d. <img url = “jtp.png” />"}
+        };
+        
+        // Array of correct answers
+        char[] Solutions = {'D', 'B', 'C', 'A'};
+
+        // Create Scanner object to take input from the user
+        Scanner sc = new Scanner(System.in);
+
+        // Variable to keep track of the user's score
+        int Marks = 0;
+
+        // Loop through each question
+        for (int i = 0; i < Solutions.length; i++) {
+            // Print the current question
+            System.out.println(Queries[i][0]);
+            
+            // Print the options for the current question
+            for (int j = 1; j <= 4; j++) {
+                System.out.println(Queries[i][j]);
+            }
+
+            // Prompt the user for their answer
+            System.out.println("Your answer (A, B, C, D):");
+            char userSolutions = sc.next().toUpperCase().charAt(0);
+
+            // Check if the user's answer is correct
+            if (userSolutions == Solutions[i]) {
+                Marks++;
+                System.out.println("# Correct! \n");
+            } else {
+                System.out.println("# Wrong! The correct answer is " + Solutions[i] + "\n");
+            }
+        }
+
+        // Print the user's final score
+        System.out.println("You got " + Marks + " out of " + Queries.length + " questions correct.");
+    }
+}
