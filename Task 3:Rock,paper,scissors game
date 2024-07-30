@@ -1,0 +1,35 @@
+import java.util.Random;
+import java.util.Scanner;
+public class Gaming {
+	public static void main(String []args) {
+    //creating scanner class object to take values by user
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Welcome to Online Game.");
+	System.out.println("Do u want to play again ?");
+	String play_again=sc.next();
+	//Taking while loop to play the game again
+	while(play_again.equalsIgnoreCase("yes")) {
+	System.out.println("Enter ur choice(0==rock,1==paper,2==scissor)");
+	//System.out.println("Play Again");
+	int user_input=sc.nextInt(); //0==rock,1==paper,2==scissor
+	//creating object random that generates random number by computer
+	Random rn=new Random();
+	int Computer_move=rn.nextInt(3);//(0==rock,1==paper,2==scissor)
+	System.out.println("Computer Value "+Computer_move);
+	//comparing user input and computer move in order to see whether game is draw or not
+	if(user_input==Computer_move){
+		System.out.println("Draw Game,Play Again! ");
+	}
+	//if the user input and computer move is not equal checks if statement
+		if(user_input==1 && Computer_move==0||user_input==0&& Computer_move==2||user_input==2 && Computer_move==1){
+			System.out.println("You won the Game!");
+	}
+		else {
+			System.out.println("You Lost the Game!");
+		}
+		System.out.println("Do you want to play again?");
+	}
+	System.out.println("Thankyou for playing!!");
+	}
+}
+
